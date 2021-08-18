@@ -1,27 +1,51 @@
 const boxes = document.querySelectorAll('.box')
-const winner = document.getElementById('winner')
+const player1 = document.getElementById('player1')
+const player2 = document.getElementById('player2')
+const resetBtn = document.getElementById('reset-btn')
 
 let fillerText = "X";
 
+let playerx = 0
+let playery = 0
+
 let inputValues = ['!','@','#','$','%','^','&','*','~']
 
+const reset = () => {
+    inputValues = ['!','@','#','$','%','^','&','*','~'];
+    boxes.forEach(ele=>{
+        ele.innerHTML="";
+    })
+} 
+
 const declareWinner = (id1, id2, id3) => {
-   winner.innerHTML = fillerText==="X"? 'player1 won':'player2 won'
+    if(fillerText==="X"){
+        playerx++
+        player1.innerHTML = playerx;
+    } else {
+        playery++
+        player2.innerHTML = playery;
+    }
+   swal(`${fillerText==="X"?'player 1 won':'player 2 won'}`, {
+        button:false,
+        timer: 3500
+    })
     boxes[id1].style.backgroundColor = '#5cb85c';
     boxes[id2].style.backgroundColor = '#5cb85c';
     boxes[id3].style.backgroundColor = '#5cb85c';
 
    setTimeout(() => {
-        winner.innerHTML=""; 
         boxes[id1].style.backgroundColor = 'transparent';
         boxes[id2].style.backgroundColor = 'transparent';
         boxes[id3].style.backgroundColor = 'transparent';
-        inputValues = ['!','@','#','$','%','^','&','*','~'];
-        boxes.forEach(ele=>{
-            ele.innerHTML="";
-        })
+        reset()
    }, 3500);
 } 
+
+resetBtn.addEventListener('click', ()=>{
+    reset();
+    player1.innerHTML=0;
+    player2.innerHTML=0;
+})
 
 const result = () => {
     if(inputValues[0] === inputValues[1] && inputValues[1] === inputValues[2] && inputValues[2] === inputValues[0]){
