@@ -97,7 +97,6 @@ boxes.forEach((ele,i)=>{
                 timer: 1500
               });
         }
-
         // console.log(`box ${i} clicked`)
         // console.log(inputValues)
     })

@@ -90,8 +90,9 @@ body {
 
 
 @keyframes blink { 
-  50% { box-shadow: 0 0 20px green; } 
-    }
+  50% { box-shadow: 0 0 20px #83d483; } 
+}
+
 .sub-container.won { 
      animation-name: blink ;
      animation-duration: .5s ;
