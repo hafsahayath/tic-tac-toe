@@ -5,8 +5,8 @@ const resetBtn = document.getElementById('reset-btn')
 
 let fillerText = "X";
 
-let playerx = 0
-let playery = 0
+let playerX = 0
+let playerY = 0
 
 let inputValues = ['!','@','#','$','%','^','&','*','~']
 
@@ -19,13 +19,13 @@ const reset = () => {
 
 const declareWinner = (id1, id2, id3) => {
     if(fillerText==="X"){
-        playerx++
-        player1.innerHTML = playerx;
+        playerX++
+        player1.innerHTML = playerX;
     } else {
-        playery++
-        player2.innerHTML = playery;
+        playerY++
+        player2.innerHTML = playerY;
     }
-   swal(`${fillerText==="X"?'player 1 won':'player 2 won'}`, {
+   swal(`${fillerText==="X"?'Player 1 won this round':'Player 2 won this round'}`, {
         button:false,
         timer: 3500
     })
