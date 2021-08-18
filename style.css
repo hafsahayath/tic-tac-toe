@@ -89,13 +89,13 @@ body {
 }
 
 
-  @keyframes blink { 
-    50% { box-shadow: 0 0 20px green; } 
-  }
- .sub-container.won { /*or other element you want*/
+@keyframes blink { 
+  50% { box-shadow: 0 0 20px green; } 
+    }
+.sub-container.won { 
      animation-name: blink ;
      animation-duration: .5s ;
      animation-timing-function: step-end ;
      animation-iteration-count: infinite ;
      animation-direction: alternate ;
- }
+}
