@@ -2,47 +2,53 @@ const boxes = document.querySelectorAll('.box')
 const player1 = document.getElementById('player1')
 const player2 = document.getElementById('player2')
 const resetBtn = document.getElementById('reset-btn')
+const gameBox = document.querySelector('.sub-container')
 
 let fillerText = "X";
 
-let playerX = 0
-let playerY = 0
+let playerX = 0;
+let playerY = 0;
 
 let inputValues = ['!','@','#','$','%','^','&','*','~']
 
 const reset = () => {
     inputValues = ['!','@','#','$','%','^','&','*','~'];
     boxes.forEach(ele=>{
-        ele.innerHTML="";
-    })
+        ele.innerHTML=""
+    });
 } 
 
 const declareWinner = (id1, id2, id3) => {
     if(fillerText==="X"){
-        playerX++
+        playerX++;
         player1.innerHTML = playerX;
     } else {
-        playerY++
+        playerY++;
         player2.innerHTML = playerY;
     }
    swal(`${fillerText==="X"?'Player 1 won this round':'Player 2 won this round'}`, {
         button:false,
         timer: 3500
     })
-    boxes[id1].style.backgroundColor = '#5cb85c';
-    boxes[id2].style.backgroundColor = '#5cb85c';
-    boxes[id3].style.backgroundColor = '#5cb85c';
+    boxes[id1].style.backgroundColor = '#AFE1AF';
+    boxes[id2].style.backgroundColor = '#AFE1AF';
+    boxes[id3].style.backgroundColor = '#AFE1AF';
+    gameBox.classList.add('won');
+
 
    setTimeout(() => {
         boxes[id1].style.backgroundColor = 'transparent';
         boxes[id2].style.backgroundColor = 'transparent';
         boxes[id3].style.backgroundColor = 'transparent';
+        gameBox.classList.remove('won');
         reset()
    }, 3500);
 } 
 
 resetBtn.addEventListener('click', ()=>{
     reset();
+    playerX=0;
+    playerY=0;
     player1.innerHTML=0;
     player2.innerHTML=0;
 })
@@ -71,6 +77,9 @@ const result = () => {
                 button:false,
                 timer: 1500
             })
+            setTimeout(()=>{
+                reset()
+            }, 1500);
         }
     }
 }

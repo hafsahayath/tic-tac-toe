@@ -4,22 +4,35 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  /* border: 1px solid red; */
+  color: #333;
 }
 
 body {
   min-height: 100vh;
+  min-width: 100vw;
   font-family: 'Montserrat', sans-serif;
+  background-color: #F3F3FB;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+}
+
+.container .sub-container {
+  background-color: #fff;
+  padding: 50px;
+  border-radius: 8px;
+  box-shadow: 5px 10px 10px #eee;
 }
 
 .board {
   display: grid;
-  grid-template-columns: repeat(3, 200px);
+  grid-template-columns: repeat(3, 180px);
   grid-auto-rows: 150px;
-  justify-content: center;
-  align-content: center;
-  height: 100vh;
-  padding: 20px;
 }
 
 .board > div {
@@ -30,22 +43,59 @@ body {
   cursor: pointer;
 }
 
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  margin-bottom: 40px;
+  background-color: #F3F3FB;
+  border-radius: 5px;
+  box-shadow: 0px 0px 10px #f5f5f5;
+}
+
 .box2, .box5, .box8 {
-  border-right: 2px solid black;
+  border-right: 3px solid #333;
 }
 
 .box1, .box4, .box7 {
-  border-right: 2px solid black;
+  border-right: 3px solid #333;
 }
 
 .box1, .box2, .box3 {
-  border-bottom: 2px solid black;
+  border-bottom: 3px solid #333;
 }
 
 .box7, .box8, .box9 {
-  border-top: 2px solid black;
+  border-top: 3px solid #333;
 }
 
-.swal-text {
-  color: red;
+/* .swal-text {
+  color: red; 
+} */
+
+#reset-btn {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #333;
+  border-radius: 5px;
+  padding: 10px 30px;
 }
+
+#reset-btn:hover {
+  border: 1px solid #333;
+  background-color: #F3F3FB;
+  color: #333;
+}
+
+
+  @keyframes blink { 
+    50% { box-shadow: 0 0 20px green; } 
+  }
+ .sub-container.won { /*or other element you want*/
+     animation-name: blink ;
+     animation-duration: .5s ;
+     animation-timing-function: step-end ;
+     animation-iteration-count: infinite ;
+     animation-direction: alternate ;
+ }
