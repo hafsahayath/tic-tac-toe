@@ -80,6 +80,7 @@ body {
   border: 1px solid #333;
   border-radius: 5px;
   padding: 10px 30px;
+  cursor: pointer;
 }
 
 #reset-btn:hover {
@@ -99,9 +100,4 @@ body {
      animation-timing-function: step-end ;
      animation-iteration-count: infinite ;
      animation-direction: alternate ;
-}
-
-#player1 .highest, 
-#player2 .highest {
-  color: 'green';
 }
